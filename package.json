@@ -14,8 +14,7 @@
     "node": "12.X"
   },
   "scripts": {
-    "server": "node server/",
-    "start": " \"cd src && node index.js\"",
+    "start": "node index.js",
     "full-install": "npm install",
     "heroku-postbuild": "npm build",
     "run:dev": "nodemon index.js"
