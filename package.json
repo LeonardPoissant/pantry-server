@@ -11,7 +11,7 @@
     "morgan": "^1.10.0"
   },
   "engines": {
-    "node": "v12.20.1."
+    "node": "12.X"
   },
   "scripts": {
     "server": "node server/",
