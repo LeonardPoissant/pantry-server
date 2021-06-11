@@ -10,9 +10,12 @@
     "mongodb": "^3.6.3",
     "morgan": "^1.10.0"
   },
+  "engines": {
+    "node": "v12.20.1."
+  },
   "scripts": {
-    "server": "node index.js",
-    "start": "npm server",
+    "server": "node server/",
+    "start": "node /server",
     "full-install": "npm install",
     "heroku-postbuild": "npm build",
     "run:dev": "nodemon index.js"
