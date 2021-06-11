@@ -1,7 +1,5 @@
-const { MongoClient } = require("mongodb");
-const ObjectID = require('mongodb').ObjectID;
 
-const uri = process.env.MONGO_URI;
+const ObjectID = require('mongodb').ObjectID;
 
 
 
@@ -11,13 +9,23 @@ const CreatePost = async (req, res) => {
   const id = new ObjectID
 
   console.log('post', post)
+  const title = post.title;
+  const description = post.description;
+  const category = post.category;
+  const date = post.date;
+  const convertedContent = post.convertedContent
 
   try {
     const createDB = await db
       .collection("Post")
       .insertOne({
-        post,
-        id
+        id,
+        title,
+        description,
+        category,
+        date,
+        convertedContent
+
       }
       );
     res.status(201).json({
@@ -50,6 +58,33 @@ const getPostMetaData = async (req, res) => {
       .collection("Post")
       .find({}, { projection }).skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0)
       .limit(5).sort({ 'date': 1 }).toArray()
+
+    console.log('POSTS', posts)
+
+    res.status(201).json({
+      status: 201,
+      data: posts
+    });
+
+  } catch (err) {
+    res.status(500).json({
+      data: "post,",
+      message: "Something went wrong",
+      err: err,
+    });
+    console.log(err);
+  }
+}
+const getPostsForPaths = async (req, res) => {
+
+  const db = req.db.db('test');
+
+
+  try {
+    const projection = { ObjectId: 1, title: 1, description: 1, category: 1, date: 1 };
+    const posts = await db
+      .collection("Post")
+      .find({}, { projection }).toArray()
 
     console.log('POSTS', posts)
 
@@ -178,5 +213,6 @@ module.exports = {
   getPostMetaData,
   getSinglePost,
   getNextPostsPage,
-  numOfPages
+  numOfPages,
+  getPostsForPaths
 }

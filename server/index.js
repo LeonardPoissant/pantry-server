@@ -7,9 +7,13 @@ const path = require("path");
 require('dotenv').config();
 
 
-const { CreatePost, getPost, getPostMetaData, getSinglePost, getNextPostsPage, numOfPages } = require(path.join(
+const { CreatePost, getPost, getPostMetaData, getSinglePost, getNextPostsPage, numOfPages, getPostsForPaths } = require(path.join(
   __dirname,
   "./Handlers/blog-posts"
+));
+const { register } = require(path.join(
+  __dirname,
+  "./Handlers/users"
 ));
 
 const PORT = 5000
@@ -45,12 +49,18 @@ app.use(function (req, res, next) {
   res.sendFile(path.join(__dirname + "../../client/build/index.html"));
 })*/
 
-app.post("/test", CreatePost)
+///BLOG POSTS ENDPOINTS
+app.post("/create-post", CreatePost)
 app.get("/testGet", getPost)
 app.get("/posts", numOfPages)
 app.get("/posts/:page", getPostMetaData)
 app.get("posts/:page", getNextPostsPage)
 app.get("/post/:id/:title", getSinglePost)
+app.get("/test", getPostsForPaths)
+
+//USER ENDPOINTS
+
+app.post('/register', register)
 
 var MongoClient = require('mongodb').MongoClient;
 var db;
