@@ -15,7 +15,7 @@
   },
   "scripts": {
     "server": "node server/",
-    "start": "cd ./src && node index.js",
+    "start": " \"cd ./src && node index.js\"",
     "full-install": "npm install",
     "heroku-postbuild": "npm build",
     "run:dev": "nodemon index.js"
