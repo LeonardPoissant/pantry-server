@@ -11,7 +11,10 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node /server",
+    "server": "node index.js",
+    "start": "npm server",
+    "full-install": "npm install",
+    "heroku-postbuild": "npm build",
     "run:dev": "nodemon index.js"
   }
 }
