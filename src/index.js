@@ -64,7 +64,7 @@ app.post('/register', register)
 
 var MongoClient = require('mongodb').MongoClient;
 var db;
-let connectionString = process.env.MONGO_URL;
+let connectionString = process.env.MONGO_URI;
 
 // Initialize connection once
 MongoClient.connect(connectionString, {
