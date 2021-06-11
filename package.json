@@ -11,7 +11,7 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start": "node server/index.js",
+    "run:dev": "nodemon index.js"
   }
 }
