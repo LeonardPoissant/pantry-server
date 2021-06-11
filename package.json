@@ -14,7 +14,7 @@
     "node": "12.X"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "NODE_ENV=production node src/",
     "full-install": "npm install",
     "heroku-postbuild": "npm build",
     "run:dev": "nodemon index.js"
