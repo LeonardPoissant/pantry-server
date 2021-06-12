@@ -57,7 +57,7 @@ const getPostMetaData = async (req, res) => {
     const posts = await db
       .collection("Post")
       .find({}, { projection }).skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0)
-      .limit(5).sort({ 'date': 1 }).toArray()
+      .limit(5).sort({ 'date': -1 }).toArray()
 
     console.log('POSTS', posts)
 
