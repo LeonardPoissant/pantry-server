@@ -66,7 +66,6 @@ var MongoClient = require('mongodb').MongoClient;
 var db;
 let connectionString = process.env.MONGO_URI;
 
-console.log(connectionString)
 
 // Initialize connection once
 MongoClient.connect(connectionString, {
@@ -77,7 +76,7 @@ MongoClient.connect(connectionString, {
   db = database;
 
   // Start the application after the database connection is ready
-  app.listen(PORT, () => console.info(`Listening on port ${PORT}`))
+  app.listen(process.env.PORT || PORT, () => console.info(`Listening on port ${PORT}`))
 });
 
 

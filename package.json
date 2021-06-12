@@ -11,7 +11,8 @@
     "morgan": "^1.10.0"
   },
   "engines": {
-    "node": "12.X"
+    "node": "12.X",
+    "npm": "6.14.10"
   },
   "scripts": {
     "start": "NODE_ENV=production node src/",
