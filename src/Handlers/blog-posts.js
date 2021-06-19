@@ -1,6 +1,53 @@
 
 const ObjectID = require('mongodb').ObjectID;
 
+const CreateMetaTags = async (req, res) => {
+  const db = req.db.db('test');
+
+  const metaInfo = req.body;
+
+  console.log('meta', metaInfo)
+
+  let imgUrl = metaInfo.imgUrl;
+  let description = metaInfo.description
+
+  try {
+
+    await db.collection("meta").insertOne({
+      imgUrl,
+      description
+
+    })
+
+    res.status(201).json({
+      status: 201,
+      data: metaInfo
+
+    })
+
+  } catch (err) {
+    console.error('err---', err)
+  }
+}
+
+const getMeta = async (req, res) => {
+  const db = req.db.db('test');
+
+  try {
+    const metaInfo = await db.collection("meta").find().toArray()
+
+    console.log('METAINFO', metaInfo)
+
+    res.status(201).json({
+      status: 201,
+      data: metaInfo
+    })
+
+  } catch (err) {
+    console.error('errr---', err)
+  }
+}
+
 
 
 const CreatePost = async (req, res) => {
@@ -214,5 +261,7 @@ module.exports = {
   getSinglePost,
   getNextPostsPage,
   numOfPages,
-  getPostsForPaths
+  getPostsForPaths,
+  CreateMetaTags,
+  getMeta
 }

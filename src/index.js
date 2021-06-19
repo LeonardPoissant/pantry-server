@@ -7,7 +7,7 @@ const path = require("path");
 require('dotenv').config();
 
 
-const { CreatePost, getPost, getPostMetaData, getSinglePost, getNextPostsPage, numOfPages, getPostsForPaths } = require(path.join(
+const { CreatePost, getPost, getPostMetaData, getSinglePost, getNextPostsPage, numOfPages, getPostsForPaths, CreateMetaTags, getMeta } = require(path.join(
   __dirname,
   "./Handlers/blog-posts"
 ));
@@ -57,6 +57,8 @@ app.get("/posts/:page", getPostMetaData)
 app.get("posts/:page", getNextPostsPage)
 app.get("/post/:id/:title", getSinglePost)
 app.get("/test", getPostsForPaths)
+app.post("/meta", CreateMetaTags)
+app.get("/meta", getMeta)
 
 //USER ENDPOINTS
 
