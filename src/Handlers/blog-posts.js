@@ -97,16 +97,13 @@ const getPostMetaData = async (req, res) => {
   const nPerPage = 5;
 
 
-  console.log('here-------------', req.params.page)
-
   try {
-    const projection = { ObjectId: 1, title: 1, description: 1, category: 1, date: 1 };
+    const projection = { ObjectId: 1, "post.title ": 1, "post.description": 1, "post.category": 1, "post.date": 1 };
     const posts = await db
       .collection("Post")
-      .find({}, { projection }).skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0)
+      .find({}, { projection })
+      .skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0)
       .limit(5).sort({ 'date': -1 }).toArray()
-
-    console.log('POSTS', posts)
 
     res.status(201).json({
       status: 201,
