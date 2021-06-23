@@ -98,7 +98,7 @@ const getPostMetaData = async (req, res) => {
 
 
   try {
-    const projection = { ObjectId: 1, "post.title ": 1, "post.description": 1, "post.category": 1, "post.date": 1 };
+    const projection = { ObjectId: 1, "post.title": 1, "post.description": 1, "post.category": 1, "post.date": 1 };
     const posts = await db
       .collection("Post")
       .find({}, { projection })
