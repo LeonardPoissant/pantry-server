@@ -125,7 +125,7 @@ const getPostsForPaths = async (req, res) => {
 
 
   try {
-    const projection = { ObjectId: 1, title: 1, description: 1, category: 1, date: 1 };
+    const projection = { ObjectId: 1, "post.title": 1 };
     const posts = await db
       .collection("Post")
       .find({}, { projection }).toArray()
