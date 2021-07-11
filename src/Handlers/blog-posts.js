@@ -59,7 +59,7 @@ const CreatePost = async (req, res) => {
   const title = post.title;
   const description = post.description;
   const category = post.category;
-  const date = post.date;
+  const date = new Date();
   const convertedContent = post.convertedContent
 
   try {
