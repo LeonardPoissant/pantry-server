@@ -78,7 +78,7 @@ MongoClient.connect(connectionString, {
   useNewUrlParser: true
 }, function (err, database) {
   if (err) throw err;
-  console.log('database', database)
+  console.log('databaddse', database)
   db = database;
 
   // Start the application after the database connection is ready
