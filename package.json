@@ -16,10 +16,9 @@
 		"npm": "6.14.10"
 	},
 	"scripts": {
-		"start": "node src/",
+		"start": "node index.js",
 		"full-install": "npm install",
 		"heroku-postbuild": "npm build",
-		"dev": "nodemon src/",
-		"build": "npm build"
+		"dev": "nodemon index.js"
 	}
 }
