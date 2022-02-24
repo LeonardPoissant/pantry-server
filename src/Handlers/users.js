@@ -47,9 +47,10 @@ const login = async (req, res) =>{
 
       const findUser =  await db
         .collection("User")
-        .findOne({ email: email, password: password })
+        .findOne({ userName: userName })
 
-        
+        console.log('FIND USER', findUser)
+
 
       if(findUser){
       res.status(201).json({
