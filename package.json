@@ -1,23 +1,25 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "main": "server",
-  "license": "MIT",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "mongodb": "^3.6.3",
-    "morgan": "^1.10.0"
-  },
-  "engines": {
-    "node": "12.X",
-    "npm": "6.14.10"
-  },
-  "scripts": {
-    "start": "NODE_ENV=production node src/",
-    "full-install": "npm install",
-    "heroku-postbuild": "npm build",
-    "run:dev": "NODE_ENV=development nodemon src/"
-  }
+	"name": "server",
+	"version": "1.0.0",
+	"main": "server",
+	"license": "MIT",
+	"dependencies": {
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"fs": "0.0.1-security",
+		"mongodb": "^3.6.3",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.15"
+	},
+	"engines": {
+		"node": "12.X",
+		"npm": "6.14.10"
+	},
+	"scripts": {
+		"start": "NODE_ENV=production node src/",
+		"full-install": "npm install",
+		"heroku-postbuild": "npm build",
+		"dev": "NODE_ENV=development nodemon src/",
+		"build": "npm build"
+	}
 }

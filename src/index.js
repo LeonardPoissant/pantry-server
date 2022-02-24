@@ -11,7 +11,7 @@ const { CreatePost, getPost, getPostMetaData, getSinglePost, getNextPostsPage, n
   __dirname,
   "./Handlers/blog-posts"
 ));
-const { register } = require(path.join(
+const {  register, login } = require(path.join(
   __dirname,
   "./Handlers/users"
 ));
@@ -63,10 +63,13 @@ app.get("/meta", getMeta)
 //USER ENDPOINTS
 
 app.post('/register', register)
+app.get('/login', login )
 
 var MongoClient = require('mongodb').MongoClient;
 var db;
 let connectionString = process.env.MONGO_URI;
+
+console.log('connection', connectionString)
 
 
 // Initialize connection once
