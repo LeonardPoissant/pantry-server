@@ -70,7 +70,6 @@ var MongoClient = require('mongodb').MongoClient;
 var db;
 let connectionString = process.env.MONGO_URI;
 
-console.log('connection', connectionString)
 
 
 // Initialize connection once
