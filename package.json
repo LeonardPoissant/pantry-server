@@ -18,6 +18,6 @@
 		"start": "NODE_ENV=production node src/",
 		"full-install": "npm install",
 		"heroku-postbuild": "npm build",
-		"run:dev": "NODE_ENV=development nodemon src/"
+		"dev": "NODE_ENV=development nodemon src/"
 	}
 }
