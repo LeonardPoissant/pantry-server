@@ -68,7 +68,8 @@ app.get('/login', login )
 
 var MongoClient = require('mongodb').MongoClient;
 var db;
-let connectionString = process.env.MONGO_URI;
+let connectionString = process.env.MONGO_URI ;
+
 
 
 
@@ -78,7 +79,6 @@ MongoClient.connect(connectionString, {
   useNewUrlParser: true
 }, function (err, database) {
   if (err) throw err;
-  console.log('databaddse', database)
   db = database;
 
   // Start the application after the database connection is ready
