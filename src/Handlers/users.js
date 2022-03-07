@@ -48,6 +48,8 @@ const login = async (req, res) =>{
     const condition = (email === secretEmail && password === secretPassword);
 
     console.log('private kei', privateKey)
+    console.log('email', email)
+    console.log('password ', password )
     //replace(/\\n/gm, '\n')
 
    /*await jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256' }, function(err, token) {
