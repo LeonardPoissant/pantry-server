@@ -60,18 +60,14 @@ const CreatePost = async (req, res) => {
   const description = post.description;
   const category = post.category;
   const date = new Date();
-  const convertedContent = post.convertedContent
+  const convertedContent = post.convertedContent;
+
 
   try {
     const createDB = await db
       .collection("Post")
       .insertOne({
-        id,
-        title,
-        description,
-        category,
-        date,
-        convertedContent
+     post, date
 
       }
       );
@@ -202,8 +198,6 @@ const getNextPostsPage = async (req, res) => {
 
 const getPost = async (req, res) => {
   const db = req.db.db('test');
-
-
 
   try {
     const createDB = await db

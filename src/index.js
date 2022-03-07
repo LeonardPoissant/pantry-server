@@ -4,6 +4,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
+const auth = require("./auth");
 require('dotenv').config();
 
 
@@ -28,7 +29,7 @@ app.use((req, res, next) => {
   );
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, x-access-token"
   );
   res.header("Access-Control-Allow-Origin", "*");
   next();
@@ -50,7 +51,7 @@ app.use(function (req, res, next) {
 })*/
 
 ///BLOG POSTS ENDPOINTS
-app.post("/create-post", CreatePost)
+app.post("/create-post",auth, CreatePost)
 app.get("/testGet", getPost)
 app.get("/posts", numOfPages)
 app.get("/posts/:page", getPostMetaData)
@@ -64,7 +65,7 @@ app.get("/meta", getMeta)
 //test
 
 app.post('/register', register)
-app.get('/login', login )
+app.post('/login', login )
 
 var MongoClient = require('mongodb').MongoClient;
 var db;
