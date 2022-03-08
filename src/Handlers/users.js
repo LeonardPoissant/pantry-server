@@ -44,7 +44,7 @@ const login = async (req, res) =>{
     const password = req.body.password
     const secretEmail = process.env.email ;
     const secretPassword = process.env.password ;
-   const privateKey = process.env.secretKey.replace(/\\n/gm, '\n') ;
+   const privateKey = "iU6EOY2RlO9SDxP7KBPO/j/wN8TXKCalMQr1OOhyjFE"
     const condition = (email === secretEmail && password === secretPassword);
 
     console.log('privatedfg kei', privateKey)
